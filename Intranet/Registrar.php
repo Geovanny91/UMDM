@@ -26,9 +26,9 @@
 				$IdVideos = $_POST['idvideo'];
 				$IdOpCap = $_POST['opcapitulo'];
 				$UrlCap = $_POST['url'];
-				
+				//comentario para probar los commits
 				$sql = "INSERT INTO capitulos (NombreCap, EstadoCap, IdVideos, IdOpCap, UrlCap)
-						VALUES ('$NombreCap', 1, $IdVideos, $IdOpCap, '$UrlCap');"
+						VALUES ('$NombreCap', 1, $IdVideos, $IdOpCap, '$UrlCap');";
 				$res = mysql_query($sql);
 				echo "correcto";
 				mysql_free_result($res);
