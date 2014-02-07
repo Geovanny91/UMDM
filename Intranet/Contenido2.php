@@ -95,7 +95,7 @@ $res = mysql_query($sql);
 </div>
 <script type="text/javascript">
     $(function() {
-	comboOpcCapitulo();
+	
 						var oTable1 = $('#sample-table-2').dataTable( {
 							/*"aoColumns": [
 								{ "bSortable": false },

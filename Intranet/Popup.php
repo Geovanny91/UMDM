@@ -26,7 +26,11 @@
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-info" onclick="registrarCapitulo();"><i class="icon-ok bigger-110"></i>Submit</button>
                             &nbsp; &nbsp; &nbsp;<button class="btn" type="reset"><i class="icon-undo bigger-110"></i>Reset</button>
-                        </div>';
+                        </div>
+						<script>
+						comboOpcCapitulo();
+						</script>'
+						;
 		break;
 	}
 	
