@@ -6,15 +6,15 @@
 		case 'popup_capitulo': 
 				
                  echo '<div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                            <h3 id="myModalLabel">Registrar Capitulo</h3>
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">ï¿½</button>
+                            <h3 id="myModalLabel">Registrar CapÃ­tulo</h3>
                         </div>
                         <div class="modal-body" style="margin-left: 16%;">
                             <form id="formCapitulo" method="POST">
                                 <table>
 									<tr>
                                         <td><input type="hidden" name="idvideo" id="idvideo" value="'.$idvideo.'" /></td></tr>
-                                    <tr><td>Capítulo</td>                        
+                                    <tr><td>CapÃ­tulo</td>                        
                                         <td><input type="text" name="capitulo" id="capitulo" required="required" /></td></tr>
                                     <tr><td>Url</td>                        
                                         <td><input type="text" name="url" id="url" required="required" /></td></tr>                                    
@@ -32,6 +32,6 @@
 						</script>'
 						;
 		break;
-	}
+	}      
 	
 ?>

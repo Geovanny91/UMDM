@@ -10,7 +10,7 @@
                                 
 				echo '<select class="chzn-select" data-placeholder="Selecciona un Autor" name="miautor" id="miautor"><option value=""></option>';	
 					while($autor = mysql_fetch_array($res)){
-						echo '<option value='.$autor[0].'>'.$autor[1].' '.$autor[2].' '.$autor[3].'</option>';			  
+						echo '<option value='.mb_convert_encoding($autor[0].'>'.$autor[1].' '.$autor[2].' '.$autor[3],'UTF-8').'</option>';			  
 					}
 				echo '</select>';
                                 
@@ -25,7 +25,7 @@
 			echo '<div style="margin-top: 10px;">';
 			echo '<select class="chzn-select" data-placeholder="Selecciona una Categoria" name="micategoria" id="micategoria"><option value=""></option>';	
 				while($categoria = mysql_fetch_array($res)){
-					echo '<option value='.$categoria[0].'>'.$categoria[1].' </option>';
+					echo '<option value='.mb_convert_encoding($categoria[0].'>'.$categoria[1],'UTF-8').' </option>';
 				}
 			echo '</select>';
                         echo '</div>';
@@ -39,7 +39,7 @@
 			echo '<div style="margin-top: 10px;">';
 			echo '<select class="chzn-select" data-placeholder="Selecciona un Genero" name="migenero" id="migenero"><option value=""></option>';	
 				while($genero = mysql_fetch_array($res)){
-					echo '<option value='.$genero[0].'>'.$genero[1].' </option>';
+					echo '<option value='.mb_convert_encoding($genero[0].'>'.$genero[1],'UTF-8').' </option>';
 				}
 			echo '</select>';
                         echo '</div>';
@@ -53,7 +53,7 @@
 			echo '<div style="margin-top: 10px;">';
 			echo '<select class="chzn-select"  data-placeholder="Selecciona un Tipo" name="mitipo" id="mitipo"><option value=""></option>';	
 				while($tipo = mysql_fetch_array($res)){
-					echo '<option value='.$tipo[0].'>'.$tipo[1].' </option>';
+					echo '<option value='.mb_convert_encoding($tipo[0].'>'.$tipo[1],'UTF-8').' </option>';
 				}
 			echo '</select>';
                         echo '</div>';
