@@ -63,7 +63,7 @@ function comboOpcCapitulo(){
 	});
 }
 
-
+/*=================== AUTOCOMPLETAR =============================*/
 function autoVideo(){
 	//var opc = "video";
 	//var caja = $("#desvideo").val();
@@ -95,8 +95,7 @@ function autoVideo(){
             });
 }
 
-
-
+/*=================== REGISTRAR=============================*/
 
 function registrarGeneral(){
     $("form").on('submit', function(e) {
@@ -152,7 +151,7 @@ function registrarCapitulo(){
         //e.preventDefault();
 	var opc = 'regcapitulo';	
 	var capitulo = $('#capitulo').val();
-	var idvideo = $('a').attr("class");
+	var idvideo = $("#idvideo").val();
 	var opcapitulo = $('select[name=miopcion]').val();
 	var url = $('#url').val();
 	alert(idvideo);
@@ -180,4 +179,19 @@ function registrarCapitulo(){
 			//$("#mensaje").fadeOut( 4000, "linear");
 		  });*/
      //});       
+}
+
+/*=================== POPUP =============================*/
+
+function openRegistro(id){//
+	var opc = "popup_capitulo";
+	$.ajax({
+		type: 'POST',
+		url: 'Popup.php',
+		data: {opc:opc, idvideo:id},//parametros
+		success: function(data){
+           $("#AddCapitulo").html(data);
+           console.log(data);  
+		}
+	});
 }

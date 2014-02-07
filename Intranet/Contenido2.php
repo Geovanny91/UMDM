@@ -38,7 +38,7 @@ $res = mysql_query($sql);
 
                                     <td class="td-actions">
                                         <div class="hidden-phone visible-desktop action-buttons">
-                                            <a class="blue" href="#AddCapitulo"  valor="'.$video[0] .'" data-toggle="modal">
+                                            <a class="blue" href="#AddCapitulo"  onclick="openRegistro('.$video[0].');"  data-toggle="modal">
                                                 <i class="icon-zoom-in bigger-130"></i>
                                             </a>
 
@@ -60,27 +60,7 @@ $res = mysql_query($sql);
                     </div>
                     <!--/. POPUP PARA REGISTRAR CAPITULO -->
                     <div id="AddCapitulo" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                            <h3 id="myModalLabel">Registrar Capitulo</h3>
-                        </div>
-                        <div class="modal-body" style="margin-left: 16%;">
-                            <form id="formCapitulo" method="POST">
-                                <table>
-									
-                                    <tr><td>Capítulo</td>                        
-                                        <td><input type="text" name="capitulo" id="capitulo" required="required" /></td></tr>
-                                    <tr><td>Url</td>                        
-                                        <td><input type="text" name="url" id="url" required="required" /></td></tr>                                    
-                                    <tr><td>Opciones</td>
-                                        <td id="cboOpciones"></td></tr>
-                                </table>   
-                            </form>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-info" onclick="registrarCapitulo();"><i class="icon-ok bigger-110"></i>Submit</button>
-                            &nbsp; &nbsp; &nbsp;<button class="btn" type="reset"><i class="icon-undo bigger-110"></i>Reset</button>
-                        </div>
+                        
                     </div>
                     <!--/. POPUP PARA EDITAR ANIME -->
                     <div id="Editar" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
