@@ -53,3 +53,28 @@ padding: 0px;
 float: left;
 }
 
+/*Estilos para contenidoanime.php*/
+.top_title2 {
+line-height: 40px;
+text-align: center;
+font-size: 15px;
+font-weight: bold;
+color: #FFFFFF;
+text-transform: uppercase;
+text-shadow: 1px 1px #000000;
+background: #65AAD8;
+-webkit-border-radius: 4px;
+border-radius: 8px;
+-moz-border-radius: 4px;
+}
+
+.separedescrip {
+font-size: 13px;
+margin: 0 0 20px 0;
+padding: 0px;
+width: 220px;
+float: left;
+color: #000;
+text-shadow: 2px 2px 0 #FFFFFF;
+}
+

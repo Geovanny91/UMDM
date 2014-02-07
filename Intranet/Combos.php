@@ -68,7 +68,8 @@
 			
 			echo '<select name="miopcapitulo" id="miopcapitulo"><option value="">SELECCIONAR</option>';	
 				while($opcapitulo = mysql_fetch_array($res)){
-					echo '<option value='.$opcapitulo[0].'>'.$opcapitulo[1].'  '.$opcapitulo[2].'</option>';
+//                                        Para que se vean las tildes
+					echo '<option value='. mb_convert_encoding($opcapitulo[0].'>'.$opcapitulo[1].'  '.$opcapitulo[2],'UTF-8').'</option>';
 				}
 			echo '</select>';
 			mysql_free_result($res);

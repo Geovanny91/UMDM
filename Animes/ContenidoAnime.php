@@ -1,8 +1,7 @@
 <?php
-	include_once("../conexion.php");
-	$sql = "SELECT IdVideos, Titulo, Portada FROM videos;";
-	$res = mysql_query($sql);
-	
+include_once("../conexion.php");
+$sql = "SELECT IdVideos, Titulo, Portada FROM videos;";
+$res = mysql_query($sql);
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -115,82 +114,52 @@
                 </div>
             </div>
             <div class="row" style="margin-top: 10px">            
-                <div class="span9" style="overflow: hidden; border:1px solid #c1c1c1; background-color: #fff;  border-radius: 6px; padding: 10px;">
-                    <div class="top_portadas">
-					<!--Aqui nombre de animes con php-->
-					<?php while ($video= mysql_fetch_array($res)) {
-						echo '
-							<div class="home_portada_bg">
-								<a class="big_portada_title" href="#url_anime">'.$video[1].'</a>
-								<a class="portada_big" href="../Animes/ContenidoAnime.php"><img style="height: 250px;" src="'.$video[2].'" width="151" height="250" alt="'.$video[1].'"></a>
-							</div>';
-						}
-						mysql_free_result($res);
-						mysql_close($conexion);
-						?>
-                    </div>
-                </div>
-
                 <div class="span3" style="overflow: hidden;">
                     <div style="border: 1px solid #c1c1c1; border-radius: 6px; padding: 10px;text-align: center;background: white">
                         <div class="top_title1">
-                            Top Animes de la Semana
+                            INFORMACIÓN DEL ANIME
                         </div>
-                        <div style="height:20px; padding: 3px 6px; font-family:helvetica; font-size:11px; color:#666666;">
-                            <span style="display:inline-block; width: 152px; padding: 0 5px; vertical-align:middle;">
-                                1. <a href="http://jkanime.net/shingeki-no-kyojin/" style="text-decoration:none; color:#666666;">Shingeki no Kyojin</a>
-                            </span>
-                            <img src="http://cdn.jkanime.net/assets/images/like.png" style="vertical-align:middle;"> 50732
-                        </div>
-                        <div style="height:20px; padding: 3px 6px; font-family:helvetica; font-size:11px; color:#666666;">
-                            <span style="display:inline-block; width: 152px; padding: 0 5px; vertical-align:middle;">
-                                2. <a href="http://jkanime.net/shingeki-no-kyojin/" style="text-decoration:none; color:#666666;">Sword Art Online</a>
-                            </span>
-                            <img src="http://cdn.jkanime.net/assets/images/like.png" style="vertical-align:middle;"> 50732
-                        </div>
-                        <div style="height:20px; padding: 3px 6px; font-family:helvetica; font-size:11px; color:#666666;">
-                            <span style="display:inline-block; width: 152px; padding: 0 5px; vertical-align:middle;">
-                                3. <a href="http://jkanime.net/shingeki-no-kyojin/" style="text-decoration:none; color:#666666;">One Piece</a>
-                            </span>
-                            <img src="http://cdn.jkanime.net/assets/images/like.png" style="vertical-align:middle;"> 50732
-                        </div>
-                        <div style="height:20px; padding: 3px 6px; font-family:helvetica; font-size:11px; color:#666666;">
-                            <span style="display:inline-block; width: 152px; padding: 0 5px; vertical-align:middle;">
-                                4. <a href="http://jkanime.net/shingeki-no-kyojin/" style="text-decoration:none; color:#666666;">Fairy Tail</a>
-                            </span>
-                            <img src="http://cdn.jkanime.net/assets/images/like.png" style="vertical-align:middle;"> 50732
-                        </div>
-                        <div style="height:20px; padding: 3px 6px; font-family:helvetica; font-size:11px; color:#666666;">
-                            <span style="display:inline-block; width: 152px; padding: 0 5px; vertical-align:middle;">
-                                5. <a href="http://jkanime.net/shingeki-no-kyojin/" style="text-decoration:none; color:#666666;">Naruto Shippuden</a>
-                            </span>
-                            <img src="http://cdn.jkanime.net/assets/images/like.png" style="vertical-align:middle;"> 50732
-                        </div>
+                        <div style="margin-top: 10px;">
+                            <a><img src="../Images/e9424ded98df9625c4be538195db02bc.jpg" width="220" height="320"></a>                           
+                        </div>                        
+                            <div>
+                                <div><span class="labl">Tipo:</span> <span style="display:inline-block; width: 130px; padding: 0 0 5px;">Serie</span></div>
+                                <div><span class="labl">Genero:</span> <span style="display:inline-block; width: 130px; padding: 0 0 5px;"> <a style="color:#09F; text-decoration:none;" href="http://jkanime.net/genero/musica/">Musica</a>,  <a style="color:#09F; text-decoration:none;" href="http://jkanime.net/genero/cosas-de-la-vida/">Cosas de la vida</a></span></div>
+                                <div><span class="labl">Episodios:</span> <span style="display:inline-block; width: 130px; padding: 0 0 5px;">4</span></div>
+                                <div><span class="labl">Duracion:</span> <span style="display:inline-block; width: 130px; padding: 0 0 5px;">5 min. por episodio</span></div>
+                                <div><span class="labl">Emitido:</span> <span style="display:inline-block; width: 130px; padding: 0 0 5px;">Ene 10 de 2014 a <br>Ene 31 de 2014</span></div>
+                                <div style="color:#0C0;"><span class="labl">Estado:</span> <span style="display:inline-block; width: 130px; padding: 0 0 5px;">En emision</span></div>
+                            </div>
+                        
                     </div>
                     <div style="border: 1px solid #c1c1c1; border-radius: 6px; padding: 10px;background: white;margin-top: 5px">
-                        <div class="top_title1" style="text-align: center">
+                        <div class="top_title1">
                             Generos
                         </div>
                         <div style="text-align: center">
                             <!--Aquí van los géneros-->
-                                <p>adada</p> 
-                            
+                            <p>adada</p> 
+
                         </div>
                     </div>
                     <div style="overflow: hidden; border: 1px solid #c1c1c1; border-radius: 6px; padding: 10px;text-align: center;height: 310px;background: white;margin-top: 5px">
                         <div class="fb-like-box" data-href="https://www.facebook.com/dimmakgc" data-width="234" data-height="345" data-show-faces="true" data-header="true" data-stream="false" data-show-border="false" ></div>
                     </div>
-                </div>  
+                </div> 
+                <div class="span9" style="overflow: hidden; border:1px solid #c1c1c1; background-color: #fff;  border-radius: 6px; padding: 10px;">       
+                    <div class="top_title2" >Go! Go! 575</div>                       
+                </div>
             </div>
-
         </div>
-        <hr class="featurette-divider">
-        <footer>
-            <p class="pull-right"><a href="#">Back to top</a></p>
-            <p>&copy; 2013 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a>  &middot; <a href="../Intranet/PrincipalIntranet.php">Intranet</a></p>
-        </footer>
-        <script src="../js/jquery.js"></script>
-        <script src="../js/bootstrap.min.js"></script>
-        <script src="../js/holder.js"></script>
-    </body>
+
+    </div>
+    <hr class="featurette-divider">
+    <footer>
+        <p class="pull-right"><a href="#">Back to top</a></p>
+        <p>&copy; 2013 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a>  &middot; <a href="../Intranet/PrincipalIntranet.php">Intranet</a></p>
+    </footer>
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/holder.js"></script>
+</body>
 </html>
