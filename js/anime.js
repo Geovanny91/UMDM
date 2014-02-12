@@ -58,7 +58,7 @@ function comboOpcCapitulo(){
 		url:"../Intranet/Combos.php",
 		data:{ opc:opc},
 		success: function(data){
-			$("#cboOpciones").html(data);
+			$("#cboServidor").html(data);
 		}
 	});
 }

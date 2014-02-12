@@ -63,13 +63,13 @@
 		break;
 		/* ==========================  COMBOS PARA CONTENIDO2.PHP  ========================================*/
 		case 'opcapitulo'://opcion capitulo
-			$sql = "SELECT IdOpCap, AudioCap, SubCap FROM opcionescapitulo;";
+			$sql = "SELECT * FROM servidor;";
 			$res = mysql_query($sql);
 			
-			echo '<select name="miopcapitulo" id="miopcapitulo"><option value="">SELECCIONAR</option>';	
+			echo '<select name="miopcapitulo" id="miopcapitulo"><option value="">SELECCIONAR SERVIDOR</option>';	
 				while($opcapitulo = mysql_fetch_array($res)){
 //                                        Para que se vean las tildes
-					echo '<option value='. mb_convert_encoding($opcapitulo[0].'>'.$opcapitulo[1].'  '.$opcapitulo[2],'UTF-8').'</option>';
+					echo '<option value='. mb_convert_encoding($opcapitulo[0].'>'.$opcapitulo[1],'UTF-8').'</option>';
 				}
 			echo '</select>';
 			mysql_free_result($res);

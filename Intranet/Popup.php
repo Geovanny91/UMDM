@@ -15,13 +15,16 @@ switch ($opc) {
 									<tr>
                                         <td><input type="hidden" name="idvideo" id="idvideo" value="' . $idvideo . '" /></td></tr>
                                     <tr><td>Capítulo</td>                        
-                                        <td><input type="text" name="capitulo" id="capitulo" required="required" /></td></tr>
-                                    <tr><td>Opciones</td>
-                                        <td id="cboOpciones"></td></tr> 
+                                        <td><input type="text" name="capitulo" id="capitulo" required="required" /></td></tr>                                     
                                     <tr><td>Servidor</td>                        
                                         <td id="cboServidor"></td></tr>
                                     <tr><td>Url</td>                        
-                                        <td><input type="text" name="url" id="url" required="required" /></td><td><input style="float: left;" type="button" class="btn btn-info" value="Agregar" onclick="AgregarProblema()"/></td></tr>                                                         
+                                        <td><input type="text" name="url" id="url" required="required" /></td>										
+									<tr><td>Sub Título</td>                        
+                                        <td><input type="text" name="subtitulo" id="subtitulo" required="required" /></td></tr>
+										<td><input style="float: left;" type="button" class="btn btn-info" value="Agregar" onclick="AgregarProblema()"/></td></tr>
+									<tr><td>Fan Sub</td>                        
+                                        <td><input type="text" name="fansub" id="fansub" required="required" /></td></tr>      	
                                 </table>   
                             </form>
                         </div>
