@@ -21,7 +21,7 @@ switch ($opc) {
                                     <tr><td>Url</td>                        
                                         <td><input type="text" name="url" id="url" required="required" /></td>										
 									<tr><td>Sub Título</td>                        
-                                        <td><input type="text" name="subtitulo" id="subtitulo" required="required" /></td></tr>
+                                        <td><input type="text" name="subtitulo" id="subtitulo" required="required" /></td>
 										<td><input style="float: left;" type="button" class="btn btn-info" value="Agregar" onclick="AgregarProblema()"/></td></tr>
 									<tr><td>Fan Sub</td>                        
                                         <td><input type="text" name="fansub" id="fansub" required="required" /></td></tr>      	
@@ -36,22 +36,26 @@ switch ($opc) {
                             <thead class="ui-state-active">
                              <tr>
                             <th hidden></th>
-                            <th style="width: 30px;">Servidor</th>
-                            <th style="width: 200px;">Enlace</th>
-                            <th class="hidden-480" style="width: 30px;">Eliminar</th>
+                            <th>Servidor</th>
+                            <th>Enlace</th>
+                            <th></th>
+                            <th hidden ></th>
+                            <th hidden ></th>
                             </tr>
                         </thead>   
                         <tbody class="ui-state-default" id="problemasasignados">   
                         <tr>
-                        <th>asasas</th>
-                        <th>http://vk.com/video228795866_166439206</th>
-                        <th class="td-actions" >
+                        <td>asasas</td>
+                        <td>http://vk.com/video228795866_166439206</td>
+                        <td hidden >Si</td>
+                        <td hidden >TrigoSubs</td>
+                        <td class="td-actions" >
                             <div class="hidden-phone visible-desktop action-buttons">
                                   <a class="red" href="#">
                                   <i class="icon-trash bigger-130"></i>
                                   </a>
                             </div>
-                        </th>
+                        </td>
                         </tr>
                         </tbody>
                 </table>
