@@ -31,7 +31,7 @@ switch ($opc) {
                        
                         
                        
-                        <div class="" style="margin-left:5%;margin-top:-5%;margin-right:5%;text-align:center">
+                        <div class="" style="margin-left:5%;margin-top:-5%;margin-right:5%;">
                             <table id="sample-table-2" class="table table-striped table-bordered table-hover" style="list-style: none;">
                             <thead class="ui-state-active">
                              <tr>

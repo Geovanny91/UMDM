@@ -147,8 +147,14 @@ $res = mysql_query($sql);
                     </div>
                 </div> 
                 <div class="span9" style="overflow: hidden; border:1px solid #c1c1c1; background-color: #fff;  border-radius: 6px; padding: 10px;">       
-                    <div class="top_title2" >Go! Go! 575</div>                       
-                </div>
+                    <div class="top_title2" >DRAGON BALL Z</div>                       
+                    <div style="margin-top: 10px;text-align: justify;font-family:Trebuchet MS;">
+                        <p>En Dragon ball Z Goku se ha convertido en un adulto y está casado con Milk, con la que tiene un hijo llamado Gohan. En esta segunda saga de Dragon ball Goku descubrirá que no es un terricola, sino que pertenece a una raza de guerreros conocida por ser una de las más poderosas de la galaxia, para posteriormente dar paso a los verdaderos enemigos de la serie. Para poder vencer a los nuevos enemigos que irán surgiendo, Goku y sus amigos tendrán que viajar por otros planetas e incluso al cielo y al infierno. Cada enemigo será más fuerte que el anterior, por lo que tendrán que entrenar muy duro para poder derrotarlos además de que se les irán uniendo nuevos personajes que les ayudarán a vencerlos.</p>
+                    </div>
+                    
+                    <div class="top_title2" style="margin-top: 25px;" >Lista de Episodios</div>                       
+                    
+                </div>             
             </div>
         </div>
 
