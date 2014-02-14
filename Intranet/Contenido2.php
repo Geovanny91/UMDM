@@ -27,9 +27,7 @@ $res = mysql_query($sql);
                                 while ($video = mysql_fetch_array($res)) {
                                     echo '
                                 <tr>
-                                    <td hidden>
-										
-                                    </td>
+                                    <td hidden>' . $video[0] . '</td>
                                     <td>' . $video[1] . '</td>
                                     
                                     <td class="hidden-480">
@@ -96,38 +94,50 @@ $res = mysql_query($sql);
 <script type="text/javascript">
     $(function() {
 	
-						var oTable1 = $('#sample-table-2').dataTable( {
-							/*"aoColumns": [
-								{ "bSortable": false },
-								null, null,null, null, null,
-								{ "bSortable": false }
-							],*/			 
-							'oLanguage':{
-								'sProcessing':     'Cargando...',
-								'sLengthMenu':     'Mostrar _MENU_ registros',
-								'sZeroRecords':    'No se encontraron resultados',
-								'sEmptyTable':     'Ning�n dato disponible en esta tabla',
-								'sInfo':           'Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros',
-								'sInfoEmpty':      'Mostrando registros del 0 al 0 de un total de 0 registros',
-								'sInfoFiltered':   '(filtrado de un total de _MAX_ registros)',
-								'sInfoPostFix':    '',
-								'sSearch':         'Buscar:',
-								'sUrl':            '',
-								'sInfoThousands':  '',
-								'sLoadingRecords': 'Cargando...',
-								'oPaginate': {
-									'sFirst':    'Primero',
-									'sLast':     '�ltimo',
-									'sNext':     'Siguiente',
-									'sPrevious': 'Anterior'
-								},
-								'oAria': {
-									'sSortAscending':  ': Activar para ordenar la columna de manera ascendente',
-									'sSortDescending': ': Activar para ordenar la columna de manera descendente'
-								}
-							}
-						}
-					);
+			var oTable1 = $('#sample-table-2').dataTable( {
+				/*"aoColumns": [
+					{ "bSortable": false },
+					null, null,null, null, null,
+					{ "bSortable": false }
+				],*/			 
+				'oLanguage':{
+					'sProcessing':     'Cargando...',
+					'sLengthMenu':     'Mostrar _MENU_ registros',
+					'sZeroRecords':    'No se encontraron resultados',
+					'sEmptyTable':     'Ning�n dato disponible en esta tabla',
+					'sInfo':           'Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros',
+					'sInfoEmpty':      'Mostrando registros del 0 al 0 de un total de 0 registros',
+					'sInfoFiltered':   '(filtrado de un total de _MAX_ registros)',
+					'sInfoPostFix':    '',
+					'sSearch':         'Buscar:',
+					'sUrl':            '',
+					'sInfoThousands':  '',
+					'sLoadingRecords': 'Cargando...',
+					'oPaginate': {
+						'sFirst':    'Primero',
+						'sLast':     '�ltimo',
+						'sNext':     'Siguiente',
+						'sPrevious': 'Anterior'
+					},
+					'oAria': {
+						'sSortAscending':  ': Activar para ordenar la columna de manera ascendente',
+						'sSortDescending': ': Activar para ordenar la columna de manera descendente'
+					}
+				}
+			}
+		);
+		
+			// Get the nodes from the table
+			var nNodes = oTable1.fnGetNodes();
+									//fila        , colummnas
+			//alert(nNodes[0].cells[1].innerText);//capturando nombres
+			console.log(nNodes);
+			console.log(nNodes[0].cells[1].innerHTML);
+			
+			var json;
+			json={"titulo": nNodes[0].cells[1].innerText};
+			
+			//console.log(json.titulo + " length: " + nNodes.length);
 	//Lamando a los combos
 	
 			

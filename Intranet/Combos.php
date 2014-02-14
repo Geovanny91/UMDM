@@ -30,7 +30,7 @@
 			echo '</select>';
                         echo '</div>';
 			mysql_free_result($res);
-			mysql_close($conexion);			
+			mysql_close($conexion);
 		break;
 		
 		case 'genero':
@@ -66,7 +66,7 @@
 			$sql = "SELECT * FROM servidor;";
 			$res = mysql_query($sql);
 			
-			echo '<select name="miopcapitulo" id="miopcapitulo"><option value="">SELECCIONAR SERVIDOR</option>';	
+			echo '<select name="miservidor" id="miservidor"><option value="">SELECCIONAR SERVIDOR</option>';	
 				while($opcapitulo = mysql_fetch_array($res)){
 //                                        Para que se vean las tildes
 					echo '<option value='. mb_convert_encoding($opcapitulo[0].'>'.$opcapitulo[1],'UTF-8').'</option>';

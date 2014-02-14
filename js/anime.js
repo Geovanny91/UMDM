@@ -182,8 +182,9 @@ function registrarCapitulo(){
 }
 
 /*=================== POPUP =============================*/
-
+var row = 0; // variable global sirve como id para eliminar las filas
 function openRegistro(id){//
+	row = 0;
 	var opc = "popup_capitulo";
 	$.ajax({
 		type: 'POST',
@@ -191,7 +192,40 @@ function openRegistro(id){//
 		data: {opc:opc, idvideo:id},//parametros
 		success: function(data){
            $("#AddCapitulo").html(data);
-           console.log(data);  
+           //console.log(data);  
 		}
 	});
 }
+
+function addFila() {
+	
+    //variables para agregar a la lista detalle
+	var  idservidor = $("select[name=miservidor]").val();			
+	var servidor = $("#miservidor option[value="+idservidor+"]").text();
+	var  url = $("#url").val();
+	var  subtitulo = $("#subtitulo").val();
+	var  fansub = $("#fansub").val();	
+	var eliminar = '<div class="hidden-phone visible-desktop action-buttons"><a onclick="deleteFila('+row+');" class="red" href="#"><i class="icon-trash bigger-130"></i></a></div>';
+	row++;
+	console.log(idservidor);
+    $('#tabla-capitulo').dataTable().fnAddData( [
+        idservidor,
+        servidor,
+        url,		
+        subtitulo,
+		fansub,
+		eliminar] );
+}
+
+function deleteFila(id){	
+	console.log(id);
+	$('#tabla-capitulo').dataTable().fnDeleteRow(id);
+}
+
+
+
+
+
+
+
+
