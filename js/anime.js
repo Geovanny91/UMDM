@@ -205,10 +205,11 @@ function addFila() {
 	var  url = $("#url").val();
 	var  subtitulo = $("#subtitulo").val();
 	var  fansub = $("#fansub").val();	
-	var eliminar = '<div class="hidden-phone visible-desktop action-buttons"><a onclick="deleteFila('+row+');" class="red" href="#"><i class="icon-trash bigger-130"></i></a></div>';
-	row++;
-	console.log(idservidor);
-    $('#tabla-capitulo').dataTable().fnAddData( [
+	var eliminar = '<div class="hidden-phone visible-desktop action-buttons"><a  class="del"   href="#" class="rel"><i class="icon-trash bigger-130"></i></a></div>';
+	//row++;
+	//console.log(idservidor);
+	
+    $("#tabla-capitulo").dataTable().fnAddData( [
         idservidor,
         servidor,
         url,		
@@ -217,11 +218,17 @@ function addFila() {
 		eliminar] );
 }
 
-function deleteFila(id){	
-	console.log(id);
-	$('#tabla-capitulo').dataTable().fnDeleteRow(id);
+function eliminarFila(){
+var table = $("#tabla-capitulo").dataTable();
+		$(".del").bind("click", function(event){			
+					alert("hola entre a eliminar fila !");
+					/*var fila = $(this).closest("tr")[0].sectionRowIndex;					
+					console.log(fila);
+					//var fila_pos = table.fnGetPosition(fila);
+					//console.log(fila_pos);
+					table.fnDeleteRow(fila);*/
+		});
 }
-
 
 
 

@@ -93,13 +93,8 @@ $res = mysql_query($sql);
 </div>
 <script type="text/javascript">
     $(function() {
-	
-			var oTable1 = $('#sample-table-2').dataTable( {
-				/*"aoColumns": [
-					{ "bSortable": false },
-					null, null,null, null, null,
-					{ "bSortable": false }
-				],*/			 
+		
+			var oTable1 = $('#sample-table-2').dataTable( {						 
 				'oLanguage':{
 					'sProcessing':     'Cargando...',
 					'sLengthMenu':     'Mostrar _MENU_ registros',
@@ -126,6 +121,9 @@ $res = mysql_query($sql);
 				}
 			}
 		);
+		
+		
+		
 		
 			// Get the nodes from the table
 			var nNodes = oTable1.fnGetNodes();

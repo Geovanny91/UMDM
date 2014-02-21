@@ -43,7 +43,7 @@ switch ($opc) {
 							<th>Elim</th>
                             </tr>
                         </thead>   
-                        <tbody class="ui-state-default">   
+                        <tbody  class="ui-state-default">   
 							
                         </tbody>
                 </table>
@@ -54,37 +54,40 @@ switch ($opc) {
                         </div>
 		
 		<script>
-		comboOpcCapitulo();
-		$(function() {
-			$ ("#tabla-capitulo"). dataTable ({
+		$(function() {	
+		
+		comboOpcCapitulo();		
+		
+			var tablacap = $ ("#tabla-capitulo"). dataTable({	
 				//"bPaginate": false,
 				"bFilter": false,
 				//"bInfo": false,	
-				//"sDom": "t",
+				//"sDom": "t",			
 				"aoColumnDefs" : [//ocultar columnas
 						{ "bVisible" : false , "aTargets" : [0]},
 						{ "bVisible" : false , "aTargets" : [3]},
 						{ "bVisible" : false , "aTargets" : [4]}						
-				],
-				
+				],				
 				"oLanguage":{
                     "sProcessing":     "Cargando...",
                     "sLengthMenu":     "Mostrar _MENU_ registros",
                     "sZeroRecords":    "No se encontraron resultados",
                     "sEmptyTable":     "Ningún dato disponible en esta tabla",
                     "sInfo":           "Total:  _TOTAL_ registros",
-                    "sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0 registros"
+                    "sInfoEmpty":      ""
 				},
-				"aaSorting": [[ 0, "asc"]],//ordenar
+				"aaSorting": [[ 0, "desc"]],//ordenar				
 				"iDisplayLength": 5,
                 "aLengthMenu": [[5, 10, 15, -1], [5, 10, 15, "All"]]
-			});
-		//$("div").removeClass( "row-fluid" );
+			});		
+			
+			eliminarFila();// aqui esta el método eliminar fila
+			
 		});
 		
-		</script>'
-
-        ;
+		</script>
+			
+		' ;
         break;
 }
 ?>
