@@ -35,15 +35,15 @@ switch ($opc) {
                             <table id="tabla-capitulo" class="table table-striped table-bordered table-hover" style="list-style: none;">
                             <thead class="ui-state-active">
                              <tr>
-                            <th >idServ</th>
+                            <th hidden >idServ</th>
                             <th>Servidor</th>
                             <th>Enlace</th>                            
-                            <th  >SubT</th>
-                            <th  >FanS</th>
+                            <th hidden >SubT</th>
+                            <th hidden >FanS</th>
 							<th>Elim</th>
                             </tr>
                         </thead>   
-                        <tbody  class="ui-state-default">   
+                        <tbody  class="ui-state-default">							
 							
                         </tbody>
                 </table>
@@ -73,21 +73,15 @@ switch ($opc) {
                     "sLengthMenu":     "Mostrar _MENU_ registros",
                     "sZeroRecords":    "No se encontraron resultados",
                     "sEmptyTable":     "Ningún dato disponible en esta tabla",
-                    "sInfo":           "Total:  _TOTAL_ registros",
+                    "sInfo":           "Total:  _TOTAL_ registros",//Total:  _TOTAL_ registros
                     "sInfoEmpty":      ""
 				},
 				"aaSorting": [[ 0, "desc"]],//ordenar				
 				"iDisplayLength": 5,
                 "aLengthMenu": [[5, 10, 15, -1], [5, 10, 15, "All"]]
-			});		
-			
-			eliminarFila();// aqui esta el método eliminar fila
-			
-		});
-		
-		</script>
-			
-		' ;
+			});
+		});		
+		</script>' ;
         break;
 }
 ?>

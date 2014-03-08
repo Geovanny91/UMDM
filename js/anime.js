@@ -182,9 +182,9 @@ function registrarCapitulo(){
 }
 
 /*=================== POPUP =============================*/
-var row = 0; // variable global sirve como id para eliminar las filas
+var id=1;
 function openRegistro(id){//
-	row = 0;
+	id = 1;//modificando el id cada vez q se abra un nuevo pop up
 	var opc = "popup_capitulo";
 	$.ajax({
 		type: 'POST',
@@ -197,17 +197,14 @@ function openRegistro(id){//
 	});
 }
 
-function addFila() {
-	
+function addFila() {	
     //variables para agregar a la lista detalle
 	var  idservidor = $("select[name=miservidor]").val();			
 	var servidor = $("#miservidor option[value="+idservidor+"]").text();
 	var  url = $("#url").val();
 	var  subtitulo = $("#subtitulo").val();
 	var  fansub = $("#fansub").val();	
-	var eliminar = '<div class="hidden-phone visible-desktop action-buttons"><a  class="del"   href="#" class="rel"><i class="icon-trash bigger-130"></i></a></div>';
-	//row++;
-	//console.log(idservidor);
+	var eliminar = '<div class="hidden-phone visible-desktop action-buttons"><a id="url'+id+'"  onclick="eliminar(url'+id+')"; href="#" class="red"><i class="icon-trash bigger-130"></i></a></div>';
 	
     $("#tabla-capitulo").dataTable().fnAddData( [
         idservidor,
@@ -216,19 +213,21 @@ function addFila() {
         subtitulo,
 		fansub,
 		eliminar] );
+		
+	$("a#url"+id+"").closest("tr").attr("id","fila"+id+"");//modifica el atributo id para cada tr.
+	id++;//variable para los id
+}
+			
+function eliminar(id){
+			var target_row = $(id).closest("tr")[0]._DT_RowIndex;
+			console.log(target_row);
+			//var aPos = $("#tabla-capitulo").dataTable().fnGetPosition(target_row); 
+			//console.log(aPos);
+			$("#tabla-capitulo").dataTable().fnDeleteRow(target_row);
+	//$(id).remove();
 }
 
-function eliminarFila(){
-var table = $("#tabla-capitulo").dataTable();
-		$(".del").bind("click", function(event){			
-					alert("hola entre a eliminar fila !");
-					/*var fila = $(this).closest("tr")[0].sectionRowIndex;					
-					console.log(fila);
-					//var fila_pos = table.fnGetPosition(fila);
-					//console.log(fila_pos);
-					table.fnDeleteRow(fila);*/
-		});
-}
+
 
 
 
