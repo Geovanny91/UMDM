@@ -122,9 +122,6 @@ $res = mysql_query($sql);
 			}
 		);
 		
-		
-		
-		
 			// Get the nodes from the table
 			var nNodes = oTable1.fnGetNodes();
 									//fila        , colummnas

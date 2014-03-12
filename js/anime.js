@@ -206,6 +206,9 @@ function addFila() {
 	var  fansub = $("#fansub").val();	
 	var eliminar = '<div class="hidden-phone visible-desktop action-buttons"><a id="url'+id+'"  onclick="eliminar(url'+id+')"; href="#" class="red"><i class="icon-trash bigger-130"></i></a></div>';
 	
+	var data = $("#tabla-capitulo").dataTable().fnGetData();// Obtener data de las celdas de esta manera.
+	console.log(data);
+	
     $("#tabla-capitulo").dataTable().fnAddData( [
         idservidor,
         servidor,
@@ -214,21 +217,19 @@ function addFila() {
 		fansub,
 		eliminar] );
 		
-	$("a#url"+id+"").closest("tr").attr("id","fila"+id+"");//modifica el atributo id para cada tr.
-	id++;//variable para los id
+		$("a#url"+id+"").closest("tr").attr("id","fila"+id+"");//modifica el atributo id para cada tr.
+		id++;//variable para los id
+				
 }
-			
+
 function eliminar(id){
-			var target_row = $(id).closest("tr")[0]._DT_RowIndex;
-			console.log(target_row);
-			//var aPos = $("#tabla-capitulo").dataTable().fnGetPosition(target_row); 
-			//console.log(aPos);
-			$("#tabla-capitulo").dataTable().fnDeleteRow(target_row);
-	//$(id).remove();
-}
-
-
-
+	var target_row = $(id).closest("tr")[0]._DT_RowIndex;
+	console.log(target_row);
+	//var aPos = $("#tabla-capitulo").dataTable().fnGetPosition(target_row); 
+	//console.log(aPos);
+	$("#tabla-capitulo").dataTable().fnDeleteRow(target_row);
+ 	//$(id).remove();
+ }
 
 
 

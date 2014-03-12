@@ -49,15 +49,14 @@ switch ($opc) {
                 </table>
         </div>
                         <div class="modal-footer">
+							<button id="prueba" class="btn btn-info" ><i class="icon-ok bigger-110"></i>Prueba</button>
                             <button type="submit" class="btn btn-info" onclick="registrarCapitulo();"><i class="icon-ok bigger-110"></i>Submit</button>
                             &nbsp; &nbsp; &nbsp;<button class="btn" type="reset"><i class="icon-undo bigger-110"></i>Reset</button>
                         </div>
 		
 		<script>
-		$(function() {	
-		
-		comboOpcCapitulo();		
-		
+		$(function() {			
+		comboOpcCapitulo();	
 			var tablacap = $ ("#tabla-capitulo"). dataTable({	
 				//"bPaginate": false,
 				"bFilter": false,
@@ -80,6 +79,17 @@ switch ($opc) {
 				"iDisplayLength": 5,
                 "aLengthMenu": [[5, 10, 15, -1], [5, 10, 15, "All"]]
 			});
+			
+			$("#prueba").on("click", function(){				
+				var dataDetalle=[];
+				$.each( tablacap.fnGetData(), function(i, columna){
+					//agregando dentro del array objetos JSON :)
+					dataDetalle.push({"idservidor":columna[0], "servidor":columna[1], "enlace":columna[2], "subtitulo":columna[3] , "fansub":columna[4]});							
+				});
+				console.log(dataDetalle[1].servidor);
+			});	
+			
+			
 		});		
 		</script>' ;
         break;
