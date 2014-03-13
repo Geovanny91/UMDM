@@ -21,16 +21,40 @@
 				mysql_close($conexion);
 		break;
 		
-		case 'regcapitulo': 
+		case 'regcapitulo':
+				/*-- Variables para tabla capitulos --*/
 				$NombreCap = $_POST['capitulo'];				
 				$IdVideos = $_POST['idvideo'];
-				$IdOpCap = $_POST['opcapitulo'];
-				$UrlCap = $_POST['url'];
-				//comentario para probar los commits
-				$sql = "INSERT INTO capitulos (NombreCap, EstadoCap, IdVideos, IdOpCap, UrlCap)
-						VALUES ('$NombreCap', 1, $IdVideos, $IdOpCap, '$UrlCap');";
+				//$audiourl = $_POST['audiourl']; se debe implementar una tabla quizás
+				//$fechasubida = $_POST['fechasubida'];
+				/*-- Variables para tabla detalleservidor --*/
+				$detallecap = $_POST['detallecap'];
+				$json = json_decode($detallecap, true);				
+				
+				$sql = "INSERT INTO capitulos (NombreCap, audiourl, fechasubida, EstadoCap, IdVideos)
+						VALUES ('$NombreCap', 1, 'Japones', '$fechasubida', 1, $IdVideos);";
 				$res = mysql_query($sql);
-				echo "correcto";
+				mysql_free_result($res);
+				
+				$sql = "SELECT MAX(idCapitulos) AS lastID FROM capitulos";
+				$res = mysql_query($sql);
+				$id = mysql_fetch_assoc($res);
+				$idcapitulo = $id["lastID"];
+
+				mysql_free_result($res);
+				
+				foreach ($json as $data) {
+					$idservidor = (int)$data["idservidor"];
+					$urlcapitulo = $data["urlcapitulo"];
+					$subtitulo = $data["subtitulo"];
+					$fansub =$data["fansub"];					
+					
+					$other_sql = "INSERT INTO detallecapitulo (urlcapitulo, subtitulo, fansub, idcapitulo, idservidor)
+										VALUES ('$urlcapitulo', '$subtitulo', '$fansub', $idcapitulo, $idservidor)";
+					$res = 	mysql_query($other_sql);				
+				   //echo $data["servidor"] . "=" . $data["enlace"];
+				}
+				
 				mysql_free_result($res);
 				mysql_close($conexion);
 		break;

@@ -146,45 +146,12 @@ function registrarGeneral(){
      });       
 }
 
-function registrarCapitulo(){
-    //$("#formCapitulo").on('submit', function(e) {
-        //e.preventDefault();
-	var opc = 'regcapitulo';	
-	var capitulo = $('#capitulo').val();
-	var idvideo = $("#idvideo").val();
-	var opcapitulo = $('select[name=miopcion]').val();
-	var url = $('#url').val();
-	alert(idvideo);
-	//idvideo = $('.idvideo').val("");
-	/*$.ajax({
-            type: "POST",
-            url: "../Intranet/Registrar.php",
-            data: {opc:opc, 
-					capitulo:capitulo,
-					idvideo:idvideo,
-					opcapitulo:opcapitulo,
-					url:url
-                  },
-            success: function(data){
-                  if(data === "correcto"){                            
-                          
-                          $("#mensaje").html("<h1>BIENNNNNNNNN</h1>");
-                  }
-            }		  
-	}).done(function() {//limpiar cajas y select
-			$("#capitulo").val("");
-			$("#idvideo").val("");
-			$("#url").val("");			
-			$("#miopcion").val($("#miopcion option:first").val());
-			//$("#mensaje").fadeOut( 4000, "linear");
-		  });*/
-     //});       
-}
+
 
 /*=================== POPUP =============================*/
-var id=1;
+var my_id=1;
 function openRegistro(id){//
-	id = 1;//modificando el id cada vez q se abra un nuevo pop up
+	my_id = 1;//modificando el id cada vez q se abra un nuevo pop up
 	var opc = "popup_capitulo";
 	$.ajax({
 		type: 'POST',
@@ -204,7 +171,7 @@ function addFila() {
 	var  url = $("#url").val();
 	var  subtitulo = $("#subtitulo").val();
 	var  fansub = $("#fansub").val();	
-	var eliminar = '<div class="hidden-phone visible-desktop action-buttons"><a id="url'+id+'"  onclick="eliminar(url'+id+')"; href="#" class="red"><i class="icon-trash bigger-130"></i></a></div>';
+	var eliminar = '<div class="hidden-phone visible-desktop action-buttons"><a id="url'+my_id+'"  onclick="eliminar(url'+my_id+')"; href="#" class="red"><i class="icon-trash bigger-130"></i></a></div>';
 	
 	var data = $("#tabla-capitulo").dataTable().fnGetData();// Obtener data de las celdas de esta manera.
 	console.log(data);
@@ -217,21 +184,61 @@ function addFila() {
 		fansub,
 		eliminar] );
 		
-		$("a#url"+id+"").closest("tr").attr("id","fila"+id+"");//modifica el atributo id para cada tr.
-		id++;//variable para los id
+		$("a#url"+my_id+"").closest("tr").attr("id","fila"+my_id+"");//modifica el atributo id para cada tr.
+		my_id++;//variable para los id
 				
 }
 
 function eliminar(id){
 	var target_row = $(id).closest("tr")[0]._DT_RowIndex;
 	console.log(target_row);
-	//var aPos = $("#tabla-capitulo").dataTable().fnGetPosition(target_row); 
-	//console.log(aPos);
 	$("#tabla-capitulo").dataTable().fnDeleteRow(target_row);
- 	//$(id).remove();
  }
 
-
+function registrarCapitulo(){
+    //$("#formCapitulo").on('submit', function(e) {
+        //e.preventDefault();
+		
+	var dataDetalle=[];
+	$.each( $("#tabla-capitulo").dataTable().fnGetData(), function(i, columna){
+		//agregando dentro del array objetos JSON :)
+		dataDetalle.push({"idservidor":columna[0], "servidor":columna[1], "urlcapitulo":columna[2], "subtitulo":columna[3] , "fansub":columna[4]});							
+	});	
+	
+	//console.log(dataDetalle[1].servidor);	
+	var opc = 'regcapitulo';	
+	var capitulo = $('#capitulo').val();
+	var idvideo = $("#idvideo").val();
+	var opcapitulo = $('select[name=miopcion]').val();
+	var url = $('#url').val();
+	//console.log("id video: " + idvideo);
+	var detallecap =JSON.stringify(dataDetalle);
+	//console.log(detallecap);
+		
+	//idvideo = $('.idvideo').val("");
+	$.ajax({
+		type: "POST",
+		url: "../Intranet/Registrar.php",
+		data: {opc:opc, 
+				capitulo:capitulo,
+				idvideo:idvideo,
+				detallecap:detallecap
+			  },
+		dataType:'json'
+		/*success: function(data){
+			  if(data === "correcto"){                          
+					  $("#mensaje").html("<h1>BIENNNNNNNNN</h1>");
+			  }
+		}		  */
+	}).done(function() {//limpiar cajas y select
+			$("#capitulo").val("");
+			$("#idvideo").val("");
+			$("#url").val("");			
+			$("#miopcion").val($("#miopcion option:first").val());
+			//$("#mensaje").fadeOut( 4000, "linear");
+		  });
+     //});       
+}
 
 
 

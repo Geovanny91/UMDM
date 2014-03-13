@@ -56,7 +56,7 @@ switch ($opc) {
 		
 		<script>
 		$(function() {			
-		comboOpcCapitulo();	
+			comboOpcCapitulo();	
 			var tablacap = $ ("#tabla-capitulo"). dataTable({	
 				//"bPaginate": false,
 				"bFilter": false,
@@ -80,14 +80,14 @@ switch ($opc) {
                 "aLengthMenu": [[5, 10, 15, -1], [5, 10, 15, "All"]]
 			});
 			
-			$("#prueba").on("click", function(){				
+			/*$("#prueba").on("click", function(){				
 				var dataDetalle=[];
 				$.each( tablacap.fnGetData(), function(i, columna){
 					//agregando dentro del array objetos JSON :)
 					dataDetalle.push({"idservidor":columna[0], "servidor":columna[1], "enlace":columna[2], "subtitulo":columna[3] , "fansub":columna[4]});							
 				});
 				console.log(dataDetalle[1].servidor);
-			});	
+			});	*/
 			
 			
 		});		
