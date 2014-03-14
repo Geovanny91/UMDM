@@ -15,7 +15,9 @@ switch ($opc) {
 									<tr>
                                         <td><input type="hidden" name="idvideo" id="idvideo" value="' . $idvideo . '" /></td></tr>
                                     <tr><td>Capítulo</td>                        
-                                        <td><input type="text" name="capitulo" id="capitulo" required="required" /></td></tr>                                     
+                                        <td><input type="text" name="capitulo" id="capitulo" required="required" /></td></tr>     
+                                        <tr><td>Fecha</td>                        
+                                        <td><input type="text" data-date-format="dd-mm-yyyy" class="span10 date-picker" name="subida" id="subida" required="required" /></td></tr>     
                                     <tr><td>Servidor</td>                        
                                         <td id="cboServidor"></td></tr>
                                     <tr><td>Url</td>                        
@@ -55,6 +57,9 @@ switch ($opc) {
                         </div>
 		
 		<script>
+                $(".date-picker").datepicker().next().on(ace.click_event, function(){
+            $(this).prev().focus();
+        });
 		$(function() {			
 			comboOpcCapitulo();	
 			var tablacap = $ ("#tabla-capitulo"). dataTable({	
