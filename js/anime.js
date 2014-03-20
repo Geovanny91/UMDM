@@ -126,9 +126,8 @@ function registrarGeneral(){
                     tipo:tipo
                   },
             success: function(data){
-                  if(data === "correcto"){                            
-                          
-                          $("#mensaje").html("<h1>BIENNNNNNNNN</h1>");
+                  if(data === "correcto"){   
+                          $("p #mensaje").html(data);
                   }
             }		  
 	}).done(function() {//limpiar cajas y select
@@ -159,7 +158,6 @@ function openRegistro(id){//
 		data: {opc:opc, idvideo:id},//parametros
 		success: function(data){
            $("#AddCapitulo").html(data);
-           //console.log(data);  
 		}
 	});
 }
@@ -191,14 +189,14 @@ function addFila() {
 
 function eliminar(id){
 	var target_row = $(id).closest("tr")[0]._DT_RowIndex;
-	console.log(target_row);
+	//console.log(target_row);
 	$("#tabla-capitulo").dataTable().fnDeleteRow(target_row);
  }
 
 function registrarCapitulo(){
-    //$("#formCapitulo").on('submit', function(e) {
-        //e.preventDefault();
-		
+   $("#formCapitulo").on('submit', function(e) {
+        e.preventDefault();
+		console.log("entrandoo")
 	var dataDetalle=[];
 	$.each( $("#tabla-capitulo").dataTable().fnGetData(), function(i, columna){
 		//agregando dentro del array objetos JSON :)
@@ -206,38 +204,36 @@ function registrarCapitulo(){
 	});	
 	
 	//console.log(dataDetalle[1].servidor);	
-	var opc = 'regcapitulo';	
+	var opc = "regcapitulo";	
 	var capitulo = $('#capitulo').val();
 	var idvideo = $("#idvideo").val();
-	var opcapitulo = $('select[name=miopcion]').val();
-	var url = $('#url').val();
-	//console.log("id video: " + idvideo);
+	//var audiourl = $('select[name=miopcion]').val();
+	var fechasubida  = $("#fecsubida").val();
 	var detallecap =JSON.stringify(dataDetalle);
 	//console.log(detallecap);
-		
-	//idvideo = $('.idvideo').val("");
+
 	$.ajax({
 		type: "POST",
 		url: "../Intranet/Registrar.php",
-		data: {opc:opc, 
-				capitulo:capitulo,
-				idvideo:idvideo,
-				detallecap:detallecap
-			  },
-		dataType:'json'
-		/*success: function(data){
-			  if(data === "correcto"){                          
-					  $("#mensaje").html("<h1>BIENNNNNNNNN</h1>");
-			  }
-		}		  */
+		data: {opc: opc, 
+				capitulo: capitulo,
+				idvideo: idvideo,
+				fechasubida: fechasubida,
+				detallecap: detallecap
+			  }	
 	}).done(function() {//limpiar cajas y select
+		console.log("ENTRE A DONE ");
 			$("#capitulo").val("");
 			$("#idvideo").val("");
-			$("#url").val("");			
-			$("#miopcion").val($("#miopcion option:first").val());
-			//$("#mensaje").fadeOut( 4000, "linear");
+			$("#fecsubida").val("");
+			$("#url").val("");
+			$("#subtitulo").val("");
+			$("#fansub").val("");
+			$("#miservidor").val($("#miservidor option:first").val());
+			$("#msg").html("Datos guardados en la BD").css("color","green").fadeIn( 2000, "linear");
+			//para cerrar el popup checar el atributo aria-hidden=true
 		  });
-     //});       
+     });       
 }
 
 

@@ -121,24 +121,7 @@ $res = mysql_query($sql);
 				}
 			}
 		);
-		
-			// Get the nodes from the table
-			var nNodes = oTable1.fnGetNodes();
-									//fila        , colummnas
-			//alert(nNodes[0].cells[1].innerText);//capturando nombres
-			console.log(nNodes);
-			console.log(nNodes[0].cells[1].innerHTML);
-			
-			var json;
-			json={"titulo": nNodes[0].cells[1].innerText};
-			
-			//console.log(json.titulo + " length: " + nNodes.length);
-	//Lamando a los combos
-	
-			
-				
-			
-	//autoVideo();	
+
         /*		
         $('table th input:checkbox').on('click' , function(){
             var that = this;

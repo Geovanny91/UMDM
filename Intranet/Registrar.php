@@ -17,7 +17,7 @@
 					values ('$Titulo', '$Descripcion', '$Portada', '$Trailer', '$FechaEmision', $IdPersona, $IdCatVideo, $IdGeneros, $IdTipo, 1)";
 				$res = mysql_query($sql);					
 				echo "correcto";
-				mysql_free_result($res);
+				
 				mysql_close($conexion);
 		break;
 		
@@ -26,41 +26,42 @@
 				$NombreCap = $_POST['capitulo'];				
 				$IdVideos = $_POST['idvideo'];
 				//$audiourl = $_POST['audiourl']; se debe implementar una tabla quizás
-				//$fechasubida = $_POST['fechasubida'];
+				$fechasubida = $_POST['fechasubida'];
+				$fechasubida = date("d-m-Y",strtotime($fechasubida));
 				/*-- Variables para tabla detalleservidor --*/
 				$detallecap = $_POST['detallecap'];
 				$json = json_decode($detallecap, true);				
 				
 				$sql = "INSERT INTO capitulos (NombreCap, audiourl, fechasubida, EstadoCap, IdVideos)
-						VALUES ('$NombreCap', 1, 'Japones', '$fechasubida', 1, $IdVideos);";
+						VALUES ('$NombreCap', 'Japones', '$fechasubida', 1, $IdVideos);";
 				$res = mysql_query($sql);
-				mysql_free_result($res);
 				
-				$sql = "SELECT MAX(idCapitulos) AS lastID FROM capitulos";
+				if (!$res)	echo "error code: ".$sql. mysql_errno($conexion);
+								
+				$sql = "SELECT MAX(idCapitulos) AS lastID FROM capitulos";//luego aqui poner condicion con el usuario que registra
 				$res = mysql_query($sql);
 				$id = mysql_fetch_assoc($res);
 				$idcapitulo = $id["lastID"];
-
-				mysql_free_result($res);
 				
+				if (!$res)	echo "error code: ".$sql. mysql_errno($conexion);
+								
 				foreach ($json as $data) {
 					$idservidor = (int)$data["idservidor"];
 					$urlcapitulo = $data["urlcapitulo"];
 					$subtitulo = $data["subtitulo"];
-					$fansub =$data["fansub"];					
+					$fansub =$data["fansub"];
 					
 					$other_sql = "INSERT INTO detallecapitulo (urlcapitulo, subtitulo, fansub, idcapitulo, idservidor)
 										VALUES ('$urlcapitulo', '$subtitulo', '$fansub', $idcapitulo, $idservidor)";
-					$res = 	mysql_query($other_sql);				
-				   //echo $data["servidor"] . "=" . $data["enlace"];
+					$res = 	mysql_query($other_sql);
 				}
 				
-				mysql_free_result($res);
+				if (!$res)	echo "error code: ".$sql. mysql_errno($conexion);
+				else
+					echo "correcto";
+								
+				//mysql_free_result($res);
 				mysql_close($conexion);
 		break;
 	}
-	
-	
-	
-	
  ?>
