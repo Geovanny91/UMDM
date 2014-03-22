@@ -187,7 +187,7 @@
         <hr class="featurette-divider">
         <footer>
             <p class="pull-right"><a href="#">Back to top</a></p>
-            <p>&copy; 2013 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a>  &middot; <a href="../Intranet/PrincipalIntranet.php">Intranet</a></p>
+            <p>&copy; 2013 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a>  &middot; <a href="../Intranet/Login.php">Intranet</a></p>
         </footer>
         <script src="../js/jquery.js"></script>
         <script src="../js/bootstrap.min.js"></script>
