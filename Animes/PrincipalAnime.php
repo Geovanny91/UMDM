@@ -1,6 +1,6 @@
 <?php
 	include_once("../conexion.php");
-	$sql = "SELECT IdVideos, Titulo, Portada FROM videos;";
+	$sql = "SELECT idvideo, titvid, porvid FROM video;";
 	$res = mysql_query($sql);
 	
 ?>

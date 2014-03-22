@@ -13,7 +13,7 @@
 				$IdGeneros = $_POST['genero'];
 				$IdTipo = $_POST['tipo'];
 
-				$sql = "insert into videos (Titulo, Descripcion, Portada, Trailer, FechaEmision, IdPersona, IdCatVideo, IdGeneros, IdTipo, EstadoEmi)
+				$sql = "insert into video (titvid, desvid, porvid, travid, fecvid, idpersona, idcatvideo, idgenero, idtipo, estvid)
 					values ('$Titulo', '$Descripcion', '$Portada', '$Trailer', '$FechaEmision', $IdPersona, $IdCatVideo, $IdGeneros, $IdTipo, 1)";
 				$res = mysql_query($sql);					
 				echo "correcto";
@@ -32,13 +32,13 @@
 				$detallecap = $_POST['detallecap'];
 				$json = json_decode($detallecap, true);				
 				
-				$sql = "INSERT INTO capitulos (NombreCap, audiourl, fechasubida, EstadoCap, IdVideos)
-						VALUES ('$NombreCap', 'Japones', '$fechasubida', 1, $IdVideos);";
+				$sql = "INSERT INTO capitulo(nomcap, audcap, feccap, estcap, idvideo, idusuario)
+						VALUES ('$NombreCap', 'Japones', '$fechasubida', 1, $IdVideos, 'id session');";
 				$res = mysql_query($sql);
 				
 				if (!$res)	echo "error code: ".$sql. mysql_errno($conexion);
 								
-				$sql = "SELECT MAX(idCapitulos) AS lastID FROM capitulos";//luego aqui poner condicion con el usuario que registra
+				$sql = "SELECT MAX(idcapitulo) AS lastID FROM capitulo";//luego aqui poner condicion con el usuario que registra
 				$res = mysql_query($sql);
 				$id = mysql_fetch_assoc($res);
 				$idcapitulo = $id["lastID"];
@@ -51,7 +51,7 @@
 					$subtitulo = $data["subtitulo"];
 					$fansub =$data["fansub"];
 					
-					$other_sql = "INSERT INTO detallecapitulo (urlcapitulo, subtitulo, fansub, idcapitulo, idservidor)
+					$other_sql = "INSERT INTO detallecapitulo (urldcap, subdcap, fandcap, idcapitulo, idservidor)
 										VALUES ('$urlcapitulo', '$subtitulo', '$fansub', $idcapitulo, $idservidor)";
 					$res = 	mysql_query($other_sql);
 				}

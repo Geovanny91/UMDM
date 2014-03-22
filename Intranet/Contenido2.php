@@ -1,6 +1,6 @@
 <?php
 include_once '../conexion.php';
-$sql = "SELECT IdVideos, Titulo, EstadoEmi FROM videos;";
+$sql = "SELECT idvideo, titvid, estvid FROM video;";
 $res = mysql_query($sql);
 ?>
 <div class="row-fluid">

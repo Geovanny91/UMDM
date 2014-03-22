@@ -5,7 +5,7 @@
 	$res = "";
 	switch($opc){
 		case 'autor': 
-				$sql = "SELECT IdPersona, Nombre, ApellidoPa, ApellidoMa FROM persona WHERE EstadoPer=1;";
+				$sql = "SELECT idpersona, nomper, apepatper, apematper FROM persona WHERE estper=1;";
 				$res = mysql_query($sql);
                                 
 				echo '<select class="chzn-select" data-placeholder="Selecciona un Autor" name="miautor" id="miautor"><option value=""></option>';	
@@ -20,7 +20,7 @@
 		
 		case 'categoria': 
 			
-			$sql = "select IdCatVideo, Descripcion from categoriavideo where Estado=1;";
+			$sql = "select idcatvideo, descvid from categoriavideo where estcvid=1;";
 			$res = mysql_query($sql);
 			echo '<div style="margin-top: 10px;">';
 			echo '<select class="chzn-select" data-placeholder="Selecciona una Categoria" name="micategoria" id="micategoria"><option value=""></option>';	
@@ -34,7 +34,7 @@
 		break;
 		
 		case 'genero':
-			$sql = "select IdGeneros, Descripcion from generos where EstadoGen=1;";
+			$sql = "select idgenero, desgen from genero where estgen=1;";
 			$res = mysql_query($sql);
 			echo '<div style="margin-top: 10px;">';
 			echo '<select class="chzn-select" data-placeholder="Selecciona un Genero" name="migenero" id="migenero"><option value=""></option>';	

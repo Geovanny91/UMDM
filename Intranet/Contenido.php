@@ -1,6 +1,6 @@
 <?php
 include_once('../conexion.php');
-$sql = "SELECT IdPersona, Nombre, ApellidoPa, ApellidoMa FROM persona WHERE EstadoPer = 1;";
+$sql = "SELECT idpersona, nomper, apepatper, apematper FROM persona WHERE estper = 1;";
 $res = mysql_query($sql);
 ?>
 <div class="row-fluid">
