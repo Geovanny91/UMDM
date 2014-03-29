@@ -145,8 +145,6 @@ function registrarGeneral(){
      });       
 }
 
-
-
 /*=================== POPUP =============================*/
 var my_id=1;
 function openRegistro(id){//
@@ -200,7 +198,7 @@ function registrarCapitulo(){
 	var dataDetalle=[];
 	$.each( $("#tabla-capitulo").dataTable().fnGetData(), function(i, columna){
 		//agregando dentro del array objetos JSON :)
-		dataDetalle.push({"idservidor":columna[0], "servidor":columna[1], "urlcapitulo":columna[2], "subtitulo":columna[3] , "fansub":columna[4]});							
+		dataDetalle.push({"idservidor":columna[0], "servidor":columna[1], "urlcapitulo":columna[2], "subtitulo":columna[3] , "fansub":columna[4]});
 	});	
 	
 	//console.log(dataDetalle[1].servidor);	
@@ -236,6 +234,5 @@ function registrarCapitulo(){
      });       
 }
 
-
-
+/*LOGIN*/
 

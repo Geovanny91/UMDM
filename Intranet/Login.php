@@ -1,3 +1,9 @@
+<?php
+	session_start();
+	if(isset($_SESSION['id_usuario']))
+		header("Location: PrincipalIntranet.php");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -47,34 +53,35 @@
 
                                                 <div class="space-6"></div>
 
-                                                <form />
+                                             <form action="ValidaLogin.php" method="POST">
                                                 <fieldset>
                                                     <label>
                                                         <span class="block input-icon input-icon-right">
-                                                            <input type="text" class="span12" placeholder="Username" />
+                                                            <input id="usuario" name="usuario" type="text" class="span12" placeholder="Usuario" />
                                                             <i class="icon-user"></i>
                                                         </span>
                                                     </label>
 
                                                     <label>
                                                         <span class="block input-icon input-icon-right">
-                                                            <input type="password" class="span12" placeholder="Password" />
+                                                            <input id="clave" name="clave" type="password" class="span12" placeholder="Contraseña" />
                                                             <i class="icon-lock"></i>
                                                         </span>
                                                     </label>
 
                                                     <div class="space"></div>
-
+													
                                                     <div class="clearfix">
                                                         <label class="inline">
                                                             <input type="checkbox" />
                                                             <span class="lbl"> Remember Me</span>
                                                         </label>
-
-                                                        <button onclick="return false;" class="width-35 pull-right btn btn-small btn-primary">
+														<p class="mens"></p>
+														<input type="submit" class="width-35 pull-right btn btn-small btn-primary" value="Login"></input>
+                                                        <!--<button id="btnLogin" class="width-35 pull-right btn btn-small btn-primary">
                                                              <i class="icon-key"></i>
                                                             Login
-                                                        </button>
+                                                        </button>-->
                                                     </div>
 
                                                     <div class="space-4"></div>
@@ -126,12 +133,12 @@
                                                     Retrieve Password
                                                 </h4>
 
-                                                <div class="space-6"></div>
+                                                <div class="space-6"></div>												
                                                 <p>
                                                     Enter your email and to receive instructions
                                                 </p>
 
-                                                <form />
+                                                <form>
                                                 <fieldset>
                                                     <label>
                                                         <span class="block input-icon input-icon-right">
@@ -170,7 +177,7 @@
                                                 <div class="space-6"></div>
                                                 <p> Enter your details to begin: </p>
 
-                                                <form />
+                                                <form>
                                                 <fieldset>
                                                     <label>
                                                         <span class="block input-icon input-icon-right">
@@ -215,8 +222,8 @@
                                                             <i class="icon-refresh"></i>
                                                             Reset
                                                         </button>
-
-                                                        <button onclick="return false;" class="width-65 pull-right btn btn-small btn-success">
+													
+                                                        <button  class="width-65 pull-right btn btn-small btn-success">
                                                             Register
                                                             <i class="icon-arrow-right icon-on-right"></i>
                                                         </button>
@@ -246,46 +253,20 @@
         <!--[if !IE]>-->
 
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
-        <!--<![endif]-->
-
-        <!--[if IE]>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<![endif]-->
-
-        <!--[if !IE]>-->
-
         <script type="text/javascript">
             window.jQuery || document.write("<script src='assets/js/jquery-2.0.3.min.js'>"+"<"+"/script>");
         </script>
-
-        <!--<![endif]-->
-
-        <!--[if IE]>
-<script type="text/javascript">
-window.jQuery || document.write("<script src='assets/js/jquery-1.10.2.min.js'>"+"<"+"/script>");
-</script>
-<![endif]-->
-
         <script type="text/javascript">
             if("ontouchend" in document) document.write("<script src='assets/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
         </script>
         <script src="../js/bootstrap.min.js"></script>
-
-        <!--page specific plugin scripts-->
-
-        <!--ace scripts-->
-
         <script src="../js/ace-elements.min.js"></script>
         <script src="../js/ace.min.js"></script>
-
-        <!--inline scripts related to this page-->
-
         <script type="text/javascript">
             function show_box(id) {
                 $('.widget-box.visible').removeClass('visible');
                 $('#'+id).addClass('visible');
-            }
+            }						
         </script>
     </body>
 </html>

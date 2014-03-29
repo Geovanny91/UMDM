@@ -1,3 +1,11 @@
+<?php
+	session_start(); 
+	
+	if( !isset($_SESSION['id_usuario']) || (trim($_SESSION['user']) == '')) {
+		header("location: Login.php");
+		exit();
+	}
+?>
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -80,8 +88,8 @@
                             <a data-toggle="dropdown" href="#" class="dropdown-toggle">
                                 <img class="nav-user-photo"  alt="Jason's Photo" />
                                 <span class="user-info">
-                                    <small>Welcome,</small>
-                                    Jason
+                                    <small>Bienvenido,</small>
+                                    <?php echo $_SESSION["user"] ?>
                                 </span>
 
                                 <i class="icon-caret-down"></i>
@@ -105,9 +113,9 @@
                                 <li class="divider"></li>
 
                                 <li>
-                                    <a href="#">
+                                    <a href="./Logout.php">
                                         <i class="icon-off"></i>
-                                        Logout
+                                        Cerrar Sesión
                                     </a>
                                 </li>
                             </ul>
